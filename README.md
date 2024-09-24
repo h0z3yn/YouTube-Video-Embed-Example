@@ -1,9 +1,9 @@
-# YouTube Video Embed Example
+# YouTube Video Playback Control System
 
-This repository contains a simple HTML project that demonstrates how to embed a YouTube video using the YouTube IFrame Player API. It allows you to play a video and displays the current playback time along with the total duration of the video.
+This project is a video playback control system that utilizes the YouTube IFrame Player API. It tracks the playback status (playing or paused) and displays both the current playback time and the total duration of the video.
 
 ## Features
-- Embed a YouTube video
+- Control video playback (play/pause)
 - Display current playback time
 - Display total video duration
 
