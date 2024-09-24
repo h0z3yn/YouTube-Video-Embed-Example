@@ -16,7 +16,7 @@ This project is a video playback control system that utilizes the YouTube IFrame
 ### Usage
 1. Clone this repository to your local machine using:
    ```bash
-   git clone https://github.com/yourusername/repository-name.git
+   git clone https://github.com/h0z3yn/YouTube-Video-Playback-Control.git
 2. Navigate to the cloned directory.
 3. Start a local web server. For example, using Python:
    ```bash
