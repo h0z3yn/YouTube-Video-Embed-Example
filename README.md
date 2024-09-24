@@ -29,5 +29,5 @@ To change the embedded video, update the `videoId` variable in the `<script>` se
    videoId: 'your_new_video_id',
    ```
 
-##License
+## License
 This project is licensed under the GNU General Public License v3.0 (GPL-3.0).
