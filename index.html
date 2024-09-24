@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YouTube Video Embed</title>
+</head>
+<body>
+    <!-- Container for the YouTube player -->
+    <div id="player"></div>
+    
+    <!-- Paragraph to display video information -->
+    <p id="videoInfo">Loading video information...</p>
+
+    <script>
+        // Load the IFrame Player API code asynchronously.
+        var tag = document.createElement('script');
+        tag.src = "https://www.youtube.com/iframe_api";
+        
+        // Insert the API script tag before the first existing script tag.
+        var firstScriptTag = document.getElementsByTagName('script')[0];
+        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+        // Create a YouTube player after the API code downloads.
+        var player;
+        
+        /**
+         * This function is called when the IFrame API is ready.
+         * It initializes the YouTube player.
+         */
+        function onYouTubeIframeAPIReady() {
+            player = new YT.Player('player', {
+                height: '315',
+                width: '560',
+                videoId: 'cDNDVtoJhik', // Replace with your desired video ID
+                events: {
+                    'onReady': onPlayerReady,
+                    'onStateChange': onPlayerStateChange
+                }
+            });
+        }
+
+        /**
+         * This function is called when the player is ready.
+         * It triggers the update of video information.
+         * @param {Object} event - The event object.
+         */
+        function onPlayerReady(event) {
+            updateVideoInfo();
+        }
+
+        /**
+         * This function is called when the player's state changes.
+         * It logs the current state and updates the video information.
+         * @param {Object} event - The event object containing state data.
+         */
+        function onPlayerStateChange(event) {
+            if (event.data == YT.PlayerState.PLAYING) {
+                console.log("Video is playing");
+                updateVideoInfo();
+            } else if (event.data == YT.PlayerState.PAUSED) {
+                console.log("Video is paused");
+                updateVideoInfo();
+            } else if (event.data == YT.PlayerState.ENDED) {
+                console.log("Video has ended");
+                updateVideoInfo();
+            }
+        }
+
+        /**
+         * Updates the displayed video information.
+         * It retrieves the current playback time and total duration.
+         */
+        function updateVideoInfo() {
+            if (player && player.getDuration && player.getCurrentTime) {
+                var totalDuration = player.getDuration();
+                var currentTime = player.getCurrentTime();
+                document.getElementById('videoInfo').innerText = 
+                    `Current Time: ${currentTime} seconds / Total Duration: ${totalDuration} seconds`;
+            }
+        }
+    </script>
+</body>
+</html>
